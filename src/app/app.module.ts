@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CustomTranslationModule } from "./core/translate/custom-translation.module";
+
 
 @NgModule({
   declarations: [
@@ -16,9 +18,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CustomTranslationModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
