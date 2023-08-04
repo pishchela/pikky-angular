@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CreateRoomComponent } from './create-room/create-room.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './routes/home/home.component';
+import { CreateRoomComponent } from './routes/create-room/create-room.component';
+import { NotFoundComponent } from './routes/not-found/not-found.component';
 import { CustomTranslationModule } from "./core/translate/custom-translation.module";
 
 
