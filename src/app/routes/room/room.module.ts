@@ -3,6 +3,7 @@ import { RoomComponent } from "./room.component";
 import { CommonModule } from "@angular/common";
 import { RoomRoutingModule } from "./room-roouting.module";
 import { CustomTranslationModule } from "../../core/translate/custom-translation.module";
+import { SocketService } from "./services/socket.service";
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { CustomTranslationModule } from "../../core/translate/custom-translation
   ],
   declarations: [
     RoomComponent,
+  ],
+  providers: [
+    SocketService,
   ],
 })
 export class RoomModule {}

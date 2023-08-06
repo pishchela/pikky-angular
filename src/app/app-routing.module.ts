@@ -14,10 +14,10 @@ const routes: Routes = [
     component: CreateRoomComponent,
   },
   {
-    path: ':id',
+    path: ':roomName',
     loadChildren: () => import('./routes/room/room.module').then(m => m.RoomModule),
   },
-  {path: '404', component: NotFoundComponent},
+  { path: '404', component: NotFoundComponent },
   // {path: '**', redirectTo: '/404'}
 ];
 
