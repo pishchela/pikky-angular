@@ -7,6 +7,7 @@ import { HomeComponent } from './routes/home/home.component';
 import { CreateRoomComponent } from './routes/create-room/create-room.component';
 import { NotFoundComponent } from './routes/not-found/not-found.component';
 import { CustomTranslationModule } from "./core/translate/custom-translation.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CustomTranslationModule } from "./core/translate/custom-translation.mod
     BrowserModule,
     AppRoutingModule,
     CustomTranslationModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })

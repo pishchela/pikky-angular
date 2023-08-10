@@ -1,0 +1,43 @@
+:host {
+  width: 100%;
+  &.textarea-bold {
+    textarea {
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+  }
+
+  textarea {
+    width: 100%;
+
+    font-size: 14px;
+    font-weight: 400;
+    overflow: hidden;
+    resize: horizontal;
+
+    color: #272937;
+    font-family: Inter, sans-serif;
+    line-height: 100%; /* 14px */
+    text-transform: capitalize;
+    font-style: normal;
+
+    margin: 0;
+    border: none;
+    outline: none;
+
+    :focus-visible {
+      outline: none;
+    }
+
+    ::placeholder {
+      color: rgba(39, 41, 55, 0.50);
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%; /* 16px */
+      text-transform: capitalize;
+    }
+  }
+}

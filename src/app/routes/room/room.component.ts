@@ -4,29 +4,40 @@ import { SocketService } from "./services/socket.service";
 import { RoomUser } from "./models/room-user.model";
 import { Subscription } from "rxjs";
 
+enum bordType {
+  EDIT,
+  GAME,
+  SCORE
+}
+
 @Component({
-  selector: 'app-room',
-  templateUrl: './room.component.html'
+  selector: 'pikky-room',
+  templateUrl: './room.component.html',
+  styleUrls: ['./room.component.scss']
 })
 export class RoomComponent implements OnInit, OnDestroy {
+  public bordTypes = bordType;
+  public currentBordType: bordType;
   public roomData: RoomUser[] = [];
+  public currentUser: RoomUser;
   private _roomDataSub: Subscription;
-  constructor(private route: ActivatedRoute, private _socketService: SocketService) {
-
-  }
+  // constructor(private route: ActivatedRoute, private _socketService: SocketService) {
+  //
+  // }
 
   public ngOnInit(): void {
-    this._roomDataSub = this._socketService
-      .getRoomData()
-      .subscribe((roomData: RoomUser[]) => {
-        this.roomData = roomData;
-    })
-
-    // todo: rewrite later to resolver
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const roomName = params.get('roomName');
-      this._socketService.joinRoom(Date.now().toString(), roomName);
-    });
+    this.currentBordType = this.bordTypes.EDIT;
+    // this._roomDataSub = this._socketService
+    //   .getRoomData()
+    //   .subscribe((roomData: RoomUser[]) => {
+    //     this.roomData = roomData;
+    // })
+    //
+    // // todo: rewrite later to resolver
+    // this.route.paramMap.subscribe((params: ParamMap) => {
+    //   const roomName = params.get('roomName');
+    //   this._socketService.joinRoom(Date.now().toString(), roomName);
+    // });
   }
 
   public ngOnDestroy(): void {

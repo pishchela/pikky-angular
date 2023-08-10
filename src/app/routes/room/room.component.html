@@ -1,3 +1,11 @@
 <p *ngFor="let room of roomData">
   {{room.username}}
 </p>
+
+
+<div class="bord-bg">
+  <ng-container [ngSwitch]="currentBordType">
+    <pikky-bord-edit *ngSwitchCase="bordTypes.EDIT"></pikky-bord-edit>
+    <!--  <pikky-bord *ngSwitchCase="bordTypes.GAME"></pikky-bord>-->
+  </ng-container>
+</div>

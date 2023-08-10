@@ -1,0 +1,10 @@
+<div class="bord position-relative">
+    <pikky-card
+      *ngFor="let card of cards"
+      [card]="card"
+      (deleteCardClicked)="deleteCard($event)"
+    >
+
+    </pikky-card>
+  <pikky-create-panel (createCardClicked)=createCard()></pikky-create-panel>
+</div>

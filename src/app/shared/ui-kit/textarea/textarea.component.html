@@ -1,0 +1,12 @@
+<textarea
+  cdkTextareaAutosize
+  #autosize="cdkTextareaAutosize"
+  cdkAutosizeMinRows="1"
+  [cdkAutosizeMaxRows]="maxRows"
+  [placeholder]="placeholder"
+  [disabled]="disabled"
+  [(ngModel)]="value"
+  [attr.maxlength]="maxlength"
+  (keyup)="propagateChange($any($event).target.value)"
+  (blur)="propagateTouched($any($event))">
+</textarea>

@@ -1,0 +1,26 @@
+.pikky-card {
+  display: flex;
+  width: 283px;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 161px;
+  border-radius: 5px;
+  border: 1px solid rgba(39, 41, 55, 0.12);
+  background: #FFF;
+}
+
+img.icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+button {
+  &.save {
+    width: 89px;
+    background-color: #FFFFFF;
+    color: #0066FF;
+    border: 1px solid #2729371F;
+  }
+}

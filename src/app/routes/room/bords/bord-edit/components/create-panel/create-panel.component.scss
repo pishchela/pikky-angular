@@ -1,0 +1,28 @@
+:host {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  bottom: 32px;
+}
+
+.panel {
+  display: inline-flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 11px;
+  background: #F3F3F9;
+
+  button {
+    width: 179px;
+
+    &.panel-card-create {
+      color: #FFFFFF;
+      background-color: #272937;
+    }
+    &.panel-card-upload {
+      color: #272937;
+      background-color: #FFFFFF;
+    }
+  }
+}
