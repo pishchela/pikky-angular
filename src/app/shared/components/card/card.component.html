@@ -1,18 +1,22 @@
 <div *ngIf="card">
-  <div class="pikky-card">
-    <pikky-textarea
-      placeholder="Key"
-      [(ngModel)]="card.key"
-      [disabled]="isDisabled"
-      [maxlength]="50"
-      class="textarea-bold">
-    </pikky-textarea>
+  <div class="pikky-card d-flex flex-column justify-content-between">
+    <div>
+      <pikky-textarea
+        placeholder="Key"
+        [(ngModel)]="card.key"
+        [disabled]="isDisabled"
+        [maxlength]="40"
+        class="textarea-bold">
+      </pikky-textarea>
 
-    <pikky-textarea
-      placeholder="Description"
-      [(ngModel)]="card.description"
-      [disabled]="isDisabled">
-    </pikky-textarea>
+      <pikky-textarea
+        placeholder="Description"
+        [maxlength]="160"
+        [maxRows]="5"
+        [(ngModel)]="card.description"
+        [disabled]="isDisabled">
+      </pikky-textarea>
+    </div>
 
     <div class="d-flex justify-content-between align-items-center w-100">
       <p class="pikky-card-author">{{username}}</p>

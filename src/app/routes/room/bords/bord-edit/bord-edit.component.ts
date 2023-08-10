@@ -8,7 +8,11 @@ import { RoomUser } from "../../models/room-user.model";
   styleUrls: ['./bord-edit.component.scss'],
 })
 export class BordEditComponent {
-  @Input() currentUser: RoomUser;
+  @Input() currentUser: RoomUser = {
+    username: 'Alex P',
+    id: 'gjdlkh gsldfg ',
+    room: '3',
+  };
   public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
   public cards: Card[] = [];
 
