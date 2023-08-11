@@ -21,6 +21,25 @@ export class RoomComponent implements OnInit, OnDestroy {
   public roomData: RoomUser[] = [];
   public currentUser: RoomUser;
   private _roomDataSub: Subscription;
+  constructor() {
+    this.roomData = [
+      {
+        username: 'Alex P',
+        id: 'fdsfadsgdf',
+        room: '4',
+      },
+      {
+        username: 'Pasha',
+        id: 'fdsfadsgdf',
+        room: '4',
+      },
+      {
+        username: 'Kate Gappy dappy duppy buppy',
+        id: 'fdsfadsgdf',
+        room: '4',
+      },
+    ]
+  }
   // constructor(private route: ActivatedRoute, private _socketService: SocketService) {
   //
   // }

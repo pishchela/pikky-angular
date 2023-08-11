@@ -1,5 +1,9 @@
 @import 'src/assets/styles/variables';
 
+:host {
+  position: relative;
+}
+
 .pikky-card {
   width: 283px;
   padding: 12px;
@@ -20,6 +24,6 @@ button {
     width: 89px;
     background-color: $white;
     color: $blue;
-    border: 1px solid $dark;
+    border: 1px solid $dark-filtered;
   }
 }

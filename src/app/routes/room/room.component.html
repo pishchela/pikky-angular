@@ -1,8 +1,6 @@
-<p *ngFor="let room of roomData">
-  {{room.username}}
-</p>
-
-
+<div class="position-relative">
+  <pikky-users-sidebar [users]="roomData"></pikky-users-sidebar>
+</div>
 <div class="bord-bg">
   <ng-container [ngSwitch]="currentBordType">
     <pikky-bord-edit *ngSwitchCase="bordTypes.EDIT"></pikky-bord-edit>

@@ -1,0 +1,26 @@
+@import 'src/assets/styles/variables';
+
+
+:host {
+  position: fixed;
+  z-index: 10;
+  height: calc(100% - 32px * 2);
+  bottom: 32px;
+  left: 16px;
+}
+
+.users-sidebar {
+  z-index: 100;
+  margin-left: 16px;
+  width: 101px;
+  height: 100%;
+  background-color: $sidebar-bg;
+  padding: 32px 20px 0;
+}
+
+.users-sidebar-item {
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
