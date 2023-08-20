@@ -36,7 +36,7 @@
         ],
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/no-empty-function": "warn",
-        "no-useless-constructor": "error"
+        "no-useless-constructor": "off"
       }
     },
     {

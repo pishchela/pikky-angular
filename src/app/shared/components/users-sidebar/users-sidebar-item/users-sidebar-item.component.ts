@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { RoomUser } from "../../../../routes/room/models/room-user.model";
+import { User } from "../../../../routes/room/models/user.model";
 
 @Component({
   standalone: true,
@@ -8,5 +8,5 @@ import { RoomUser } from "../../../../routes/room/models/room-user.model";
   styleUrls: ['./users-sidebar-item.component.scss'],
 })
 export class UsersSidebarItemComponent {
-  @Input() user: RoomUser;
+  @Input() user: User;
 }

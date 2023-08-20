@@ -1,9 +1,13 @@
 <div class="position-relative">
-  <pikky-users-sidebar [users]="roomData"></pikky-users-sidebar>
+  <pikky-users-sidebar [users]="users"></pikky-users-sidebar>
 </div>
 <div class="bord-bg">
   <ng-container [ngSwitch]="currentBordType">
-    <pikky-bord-edit *ngSwitchCase="bordTypes.EDIT"></pikky-bord-edit>
+    <pikky-bord-edit
+      *ngSwitchCase="bordTypes.EDIT"
+      [cards]="cards | async"
+      [currentUser]="currentUser">
+    </pikky-bord-edit>
     <!--  <pikky-bord *ngSwitchCase="bordTypes.GAME"></pikky-bord>-->
   </ng-container>
 </div>
