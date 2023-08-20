@@ -22,6 +22,7 @@ import { TextareaComponent } from "../../ui-kit/textarea/textarea.component";
 })
 export class CardComponent {
   @Output() public deleteCardClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public saveCardChanges: EventEmitter<Card> = new EventEmitter<Card>();
   @Input() public card: Card;
   public cardViewTypes = CardViewType;
   public disabled = false;
@@ -35,6 +36,7 @@ export class CardComponent {
 
   public saveCard(): void {
     this.card.viewType = this.cardViewTypes.View;
+    this.saveCardChanges.emit(this.card);
   }
 
   public editCard(): void {

@@ -2,7 +2,7 @@ import {
   Component,
   Input,
 } from "@angular/core";
-import { RoomUser } from "../../../routes/room/models/room-user.model";
+import { User } from "../../../routes/room/models/user.model";
 import { UsersSidebarItemComponent } from "./users-sidebar-item/users-sidebar-item.component";
 import { CommonModule } from "@angular/common";
 
@@ -17,5 +17,9 @@ import { CommonModule } from "@angular/common";
   ],
 })
 export class UsersSidebarComponent {
-  @Input() users: RoomUser[];
+  @Input() users: User[];
+
+  public identify(index: number, item: User): string {
+    return item.id;
+  }
 }

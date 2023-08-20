@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input } from "@angular/core";
-import { Card } from "../../models/card.model";
-import { RoomUser } from "../../models/room-user.model";
+import { Card, ICard } from "../../models/card.model";
+import { User } from "../../models/user.model";
+import { CardsService } from "../../services/cards.service";
 
 @Component({
   selector: 'pikky-bord-edit',
@@ -8,26 +9,25 @@ import { RoomUser } from "../../models/room-user.model";
   styleUrls: ['./bord-edit.component.scss'],
 })
 export class BordEditComponent {
-  @Input() currentUser: RoomUser = {
-    username: 'Alex P',
-    id: 'gjdlkh gsldfg ',
-    room: '3',
-  };
+  @Input() currentUser: User;
   public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
-  public cards: Card[] = [];
+  @Input() public cards: ICard[] | null = [];
+
+  constructor(private _cardsService: CardsService) {}
 
   public createCard(): void {
-    this.cards.push(new Card(this.currentUser));
+    this._cardsService.editCard(new Card(this.currentUser));
   }
 
   public deleteCard(id: string): void {
-    const deleteIndex = this.cards.findIndex((card) => card.id === id);
-    if (deleteIndex >= 0) {
-      this.cards.splice(deleteIndex, 1);
-    }
+    this._cardsService.deleteCard(id);
   }
 
-  public editCard(id: string): void {
+  public editCard(card: ICard): void {
+    this._cardsService.editCard(card);
+  }
 
+  public cardIdentify(index: number, item: Card): string {
+    return item.id;
   }
 }
