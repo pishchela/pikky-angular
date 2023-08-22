@@ -34,7 +34,6 @@ export class SocketService {
 
   public joinRoom(username: string, room: string): void {
     this._currentRoomName = room;
-    // TODO: before join room generate random avatarId
     this._socket.emit('join', { username, room }, (error: any) => {
       if (error) {
         console.warn(error);

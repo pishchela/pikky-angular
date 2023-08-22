@@ -1,4 +1,6 @@
 <div class="sidebar-item d-flex flex-column align-items-center">
-  <img src="assets/images/user-images/user-1.svg" alt="user">
+  <div class="image-container">
+    <pikky-avatar [avatarId]="user.avatarId"></pikky-avatar>
+  </div>
   <p class="text-center">{{user.username}}</p>
 </div>

@@ -1,6 +1,6 @@
 export interface User {
   id: any;
   username: string;
-  avatarId?: number;
+  avatarId: number;
   current: boolean;
 }

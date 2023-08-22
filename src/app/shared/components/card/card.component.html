@@ -19,7 +19,12 @@
     </div>
 
     <div class="d-flex justify-content-between align-items-center w-100">
-      <p class="pikky-card-author">{{username}}</p>
+      <div class="d-flex align-items-center">
+        <div class="image-container me-1">
+          <pikky-avatar [avatarId]="card.owner.avatarId"></pikky-avatar>
+        </div>
+        <p class="pikky-card-author">{{username}}</p>
+      </div>
       <div class="d-flex align-items-center">
         <img src="../../../../assets/images/icons/trash.svg"
              class="icon"
