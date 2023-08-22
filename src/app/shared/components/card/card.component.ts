@@ -8,6 +8,7 @@ import { Card, CardViewType } from "../../../routes/room/models/card.model";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { TextareaComponent } from "../../ui-kit/textarea/textarea.component";
+import { AvatarComponent } from "../avatar/avatar.component";
 
 @Component({
   standalone: true,
@@ -18,6 +19,7 @@ import { TextareaComponent } from "../../ui-kit/textarea/textarea.component";
     CommonModule,
     FormsModule,
     TextareaComponent,
+    AvatarComponent,
   ],
 })
 export class CardComponent {
