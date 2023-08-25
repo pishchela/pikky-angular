@@ -7,7 +7,7 @@ import { SocketService } from "./services/socket.service";
 import { User } from "./models/user.model";
 import { Observable, Subject, takeUntil } from "rxjs";
 import { ICard } from "./models/card.model";
-import { CardsService } from "./services/cards.service";
+import { RoomEventService } from "./services/room-event.service";
 
 enum bordType {
   EDIT,
@@ -22,36 +22,19 @@ enum bordType {
 })
 export class RoomComponent implements OnInit, OnDestroy {
   public bordTypes = bordType;
-  public currentBordType: bordType;
-  public users: User[] = [];
-  public cards: Observable<ICard[]> = this._socketService.getCards();
+  public currentBordType: bordType = this.bordTypes.EDIT;
+  public users$: Observable<User[]> = this._socketService.getUsers()
+  public cards$: Observable<ICard[]> = this._socketService.getCards();
   private _destroy$ = new Subject<any>();
   constructor(
     private _socketService: SocketService,
-    private _cardsService: CardsService,
+    private _roomEventService: RoomEventService,
     ) {
 
   }
 
   public ngOnInit(): void {
-    this.currentBordType = this.bordTypes.EDIT;
-    this._subscribeOnData();
-    this._subscribeOnCardsActions();
-  }
-
-  public get currentUser(): User {
-    return this.users?.find((user) => user.current) as User;
-  }
-
-  private _subscribeOnData(): void {
-    this._socketService
-      .getUsers()
-      .pipe(
-        takeUntil(this._destroy$),
-      )
-      .subscribe((users: User[]) => {
-        this.users = users;
-      });
+    this._subscribeOnRoomEvents();
   }
 
 
@@ -60,8 +43,8 @@ export class RoomComponent implements OnInit, OnDestroy {
     this._destroy$.complete();
   }
 
-  private _subscribeOnCardsActions(): void {
-    this._cardsService.cardEditEvent()
+  private _subscribeOnRoomEvents(): void {
+    this._roomEventService.editCardEvent
       .pipe(
         takeUntil(this._destroy$),
       )
@@ -69,13 +52,23 @@ export class RoomComponent implements OnInit, OnDestroy {
         this._socketService.editCard(card);
       });
 
-    this._cardsService.deleteCardEvent()
+    this._roomEventService.deleteCardEvent
       .pipe(
         takeUntil(this._destroy$),
       )
       .subscribe(({ id }) => {
         this._socketService.deleteCard(id);
       });
+
+    this._roomEventService.userReadyEvent
+      .pipe(
+        takeUntil(this._destroy$),
+      )
+      .subscribe(() => {
+        // TODO: dont emit where user is already ready;
+        this._socketService.setCurrentUserReady();
+      });
+
 
   }
 }

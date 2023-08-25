@@ -1,7 +1,11 @@
-import { Component, EventEmitter, Input } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+} from "@angular/core";
 import { Card, ICard } from "../../models/card.model";
 import { User } from "../../models/user.model";
-import { CardsService } from "../../services/cards.service";
+import { RoomEventService } from "../../services/room-event.service";
 
 @Component({
   selector: 'pikky-bord-edit',
@@ -9,25 +13,29 @@ import { CardsService } from "../../services/cards.service";
   styleUrls: ['./bord-edit.component.scss'],
 })
 export class BordEditComponent {
-  @Input() currentUser: User;
   public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
   @Input() public cards: ICard[] | null = [];
+  @Input() public users: User[] = [];
 
-  constructor(private _cardsService: CardsService) {}
+  constructor(private _roomEventService: RoomEventService) {}
 
   public createCard(): void {
-    this._cardsService.editCard(new Card(this.currentUser));
+    this._roomEventService.editCardEvent.emit((new Card(this.currentUser)));
   }
 
   public deleteCard(id: string): void {
-    this._cardsService.deleteCard(id);
+    this._roomEventService.deleteCardEvent.emit({ id });
   }
 
   public editCard(card: ICard): void {
-    this._cardsService.editCard(card);
+    this._roomEventService.editCardEvent.emit(card);
   }
 
   public cardIdentify(index: number, item: Card): string {
     return item.id;
+  }
+
+  public get currentUser(): User {
+    return this.users?.find((user) => user.current) as User;
   }
 }
