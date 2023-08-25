@@ -8,11 +8,21 @@ import { BordEditComponent } from "./bords/bord-edit/bord-edit.component";
 import { CreatePanelComponent } from "./bords/bord-edit/components/create-panel/create-panel.component";
 import { CardComponent } from "../../shared/components/card/card.component";
 import { UsersSidebarComponent } from "../../shared/components/users-sidebar/users-sidebar.component";
-import { CardsService } from "./services/cards.service";
+import { StartPanelComponent } from "./bords/bord-edit/components/start-panel/start-panel.component";
+import { RoomEventService } from "./services/room-event.service";
+import { AvatarComponent } from "../../shared/components/avatar/avatar.component";
 
-const components = [
+const importComponents = [
   CardComponent,
   UsersSidebarComponent,
+  AvatarComponent,
+];
+
+const moduleComponents = [
+  RoomComponent,
+  BordEditComponent,
+  CreatePanelComponent,
+  StartPanelComponent,
 ];
 
 @NgModule({
@@ -20,16 +30,14 @@ const components = [
     RoomRoutingModule,
     CommonModule,
     CustomTranslationModule,
-    components,
+    importComponents,
   ],
   declarations: [
-    RoomComponent,
-    BordEditComponent,
-    CreatePanelComponent,
+    moduleComponents,
   ],
   providers: [
     SocketService,
-    CardsService,
+    RoomEventService,
   ],
 })
 export class RoomModule {}

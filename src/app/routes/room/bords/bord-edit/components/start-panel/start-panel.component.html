@@ -1,0 +1,16 @@
+<div class="start-panel d-flex align-items-center">
+  <button
+    [disabled]="isReady"
+    (click)="ready()">
+    Ready to start
+  </button>
+  <div class="start-panel__ready ms-4">
+    <p>Ready:</p>
+    <div class="d-flex">
+      <div class="start-panel__ready__avatar"
+           *ngFor="let user of readyUsers">
+        <pikky-avatar></pikky-avatar>
+      </div>
+    </div>
+  </div>
+</div>

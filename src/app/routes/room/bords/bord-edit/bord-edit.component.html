@@ -1,4 +1,8 @@
-<div class="bord position-relative">
+<div class="bord position-relative" *ngIf="currentUser">
+  <pikky-start-panel
+    [users]="users"
+    [isReady]="currentUser.isReady">
+  </pikky-start-panel>
   <div class="bord-cards d-flex flex-wrap align-items-start">
     <pikky-card
       *ngFor="let card of cards; trackBy: cardIdentify"
@@ -9,5 +13,5 @@
     >
     </pikky-card>
   </div>
-  <pikky-create-panel (createCardClicked)=createCard()></pikky-create-panel>
 </div>
+<pikky-create-panel (createCardClicked)=createCard()></pikky-create-panel>

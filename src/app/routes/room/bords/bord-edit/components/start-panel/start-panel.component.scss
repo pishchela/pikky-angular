@@ -1,0 +1,29 @@
+@import 'src/assets/styles/variables';
+
+:host {
+  position: fixed;
+  z-index: 10;
+}
+
+.start-panel {
+  width: fit-content;
+  border-radius: 5px;
+  border: 1px solid $card-border-color;
+  background: $white;
+  padding: 8px 64px 8px 16px;
+
+  &__ready {
+    color: $text-color;
+
+    &__avatar {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  button {
+    color: $white;
+    background-color: $blue;
+    padding: 12px 17px;
+  }
+}
