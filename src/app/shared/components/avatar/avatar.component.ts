@@ -1,4 +1,8 @@
-import { Component, Input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+} from '@angular/core';
 
 @Component({
   standalone: true,
@@ -15,7 +19,8 @@ import { Component, Input } from "@angular/core";
         }
       }
     `,
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarComponent {
   @Input() avatarId: number = 1;

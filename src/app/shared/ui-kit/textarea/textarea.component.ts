@@ -1,18 +1,19 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   forwardRef,
   Input,
   ViewChild,
-} from "@angular/core";
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormsModule,
   NG_VALUE_ACCESSOR,
-} from "@angular/forms";
+} from '@angular/forms';
 import {
   CdkTextareaAutosize,
   TextFieldModule,
-} from "@angular/cdk/text-field";
+} from '@angular/cdk/text-field';
 
 const DEFAULT_TEXTAREA_MAX_LENGTH = 150;
 const DEFAULT_TEXTAREA_MAX_ROWS = 2;
@@ -33,6 +34,7 @@ const DEFAULT_TEXTAREA_MAX_ROWS = 2;
       multi: true
     }
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextareaComponent implements ControlValueAccessor {
 
