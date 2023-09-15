@@ -1,5 +1,5 @@
-import { EventEmitter, Injectable } from "@angular/core";
-import { ICard } from "../models/card.model";
+import { EventEmitter, Injectable } from '@angular/core';
+import { ICard } from '../models/card.model';
 
 @Injectable()
 export class RoomEventService {
