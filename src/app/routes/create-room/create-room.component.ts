@@ -6,7 +6,7 @@ import {
 @Component({
   selector: 'pikky-create-room',
   templateUrl: './create-room.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateRoomComponent {
 

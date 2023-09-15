@@ -91,7 +91,7 @@ export class SocketService {
   private _getUsers(): void {
     this._socket.on(SocketEvents.USER_DATA, (data: { users: User[] }) => {
       console.warn(data.users);
-      this._users$.next(this.setCurrentUser(data.users, this._socket.id));
+      this._users$.next(this._setCurrentUser(data.users, this._socket.id));
     });
   }
 
@@ -105,7 +105,7 @@ export class SocketService {
     });
   }
 
-  private setCurrentUser(users: User[], currentId: string): User[] {
+  private _setCurrentUser(users: User[], currentId: string): User[] {
     const mappedUsers = users.map((user) => {
       user.current = user.id === currentId
       return user;

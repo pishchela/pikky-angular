@@ -6,7 +6,7 @@ import {
 @Component({
   selector: 'pikky-not-found',
   templateUrl: './not-found.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotFoundComponent {
 

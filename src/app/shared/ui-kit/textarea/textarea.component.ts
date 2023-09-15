@@ -31,8 +31,8 @@ const DEFAULT_TEXTAREA_MAX_ROWS = 2;
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TextareaComponent),
-      multi: true
-    }
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
