@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RoomComponent } from './room.component';
 import { CommonModule } from '@angular/common';
+
+import { RoomComponent } from './room.component';
 import { RoomRoutingModule } from './room-routing.module';
 import { CustomTranslationModule } from '../../core/translate/custom-translation.module';
 import { SocketService } from './services/socket.service';

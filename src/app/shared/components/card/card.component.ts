@@ -5,9 +5,10 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Card, CardViewType } from '../../../routes/room/models/card.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { Card, CardViewType } from '../../../routes/room/models/card.model';
 import { TextareaComponent } from '../../ui-kit/textarea/textarea.component';
 import { AvatarComponent } from '../avatar/avatar.component';
 
@@ -22,7 +23,7 @@ import { AvatarComponent } from '../avatar/avatar.component';
     TextareaComponent,
     AvatarComponent,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   @Output() public deleteCardClicked: EventEmitter<string> = new EventEmitter<string>();

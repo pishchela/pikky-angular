@@ -20,7 +20,7 @@ import {
       }
     `,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarComponent {
   @Input() avatarId: number = 1;

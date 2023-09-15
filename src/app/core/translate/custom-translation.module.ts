@@ -17,14 +17,14 @@ import { customTranslateLoader } from './custom-translate-loader';
       defaultLanguage: 'en',
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
-        useClass: MyMissingTranslationHandler
+        useClass: MyMissingTranslationHandler,
       },
       loader: {
         provide: TranslateLoader,
         useFactory: customTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [
     TranslateModule,

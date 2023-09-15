@@ -9,7 +9,7 @@ import {
   selector: 'pikky-create-panel',
   templateUrl: './create-panel.component.html',
   styleUrls: ['./create-panel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreatePanelComponent {
   @Output() public createCardClicked: EventEmitter<any> = new EventEmitter<any>();

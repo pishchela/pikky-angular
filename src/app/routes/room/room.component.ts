@@ -4,23 +4,25 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
+
+import { Observable, Subject, takeUntil } from 'rxjs';
+
 import { SocketService } from './services/socket.service';
 import { User } from './models/user.model';
-import { Observable, Subject, takeUntil } from 'rxjs';
 import { ICard } from './models/card.model';
 import { RoomEventService } from './services/room-event.service';
 
 enum bordType {
   EDIT,
   GAME,
-  SCORE
+  SCORE,
 }
 
 @Component({
   selector: 'pikky-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomComponent implements OnInit, OnDestroy {
   public bordTypes = bordType;

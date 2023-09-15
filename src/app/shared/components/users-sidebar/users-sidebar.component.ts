@@ -3,9 +3,10 @@ import {
   Component,
   Input,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { User } from '../../../routes/room/models/user.model';
 import { UsersSidebarItemComponent } from './users-sidebar-item/users-sidebar-item.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     UsersSidebarItemComponent,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersSidebarComponent {
   @Input() users: User[];

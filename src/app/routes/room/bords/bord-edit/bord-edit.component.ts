@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Input,
 } from '@angular/core';
+
 import { Card, ICard } from '../../models/card.model';
 import { User } from '../../models/user.model';
 import { RoomEventService } from '../../services/room-event.service';
@@ -12,12 +13,13 @@ import { RoomEventService } from '../../services/room-event.service';
   selector: 'pikky-bord-edit',
   templateUrl: './bord-edit.component.html',
   styleUrls: ['./bord-edit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BordEditComponent {
-  public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
   @Input() public cards: ICard[] | null = [];
   @Input() public users: User[] = [];
+
+  public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
 
   constructor(private _roomEventService: RoomEventService) {}
 

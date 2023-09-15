@@ -5,6 +5,10 @@
   ],
   "overrides": [
     {
+      "plugins": [
+        "@typescript-eslint",
+        "import"
+      ],
       "files": [
         "*.ts"
       ],
@@ -15,6 +19,96 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "memberLike",
+            "modifiers": [
+              "private"
+            ],
+            "format": [
+              "camelCase"
+            ],
+            "leadingUnderscore": "require"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": [
+              "public"
+            ],
+            "format": [
+              "camelCase"
+            ],
+            "leadingUnderscore": "forbid"
+          },
+          {
+            "selector": "property",
+            "format": null
+          }
+        ],
+        "comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
+        "no-multi-spaces": "error",
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            "default": [
+              "signature",
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field",
+              "public-decorated-field",
+              "protected-decorated-field",
+              "private-decorated-field",
+              "public-instance-field",
+              "protected-instance-field",
+              "private-instance-field",
+              "constructor",
+              "public-instance-method",
+              "protected-instance-method",
+              "private-instance-method"
+            ]
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "pathGroupsExcludedImportTypes": [],
+            "pathGroups": [
+              {
+                "pattern": "@angular/**",
+                "group": "builtin",
+                "position": "after"
+              },
+              {
+                "pattern": "@{environments,core,libs,guru,app,shared}/**",
+                "group": "internal"
+              }
+            ],
+            "groups": [
+              "builtin",
+              "external",
+              [
+                "internal",
+                "parent",
+                "sibling",
+                "index"
+              ]
+            ],
+            "newlines-between": "always"
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ],
         "@typescript-eslint/quotes": [
           "error",
           "single",
