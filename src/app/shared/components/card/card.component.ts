@@ -1,14 +1,15 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
   Output,
-} from "@angular/core";
-import { Card, CardViewType } from "../../../routes/room/models/card.model";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { TextareaComponent } from "../../ui-kit/textarea/textarea.component";
-import { AvatarComponent } from "../avatar/avatar.component";
+} from '@angular/core';
+import { Card, CardViewType } from '../../../routes/room/models/card.model';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { TextareaComponent } from '../../ui-kit/textarea/textarea.component';
+import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
   standalone: true,
@@ -21,6 +22,7 @@ import { AvatarComponent } from "../avatar/avatar.component";
     TextareaComponent,
     AvatarComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent {
   @Output() public deleteCardClicked: EventEmitter<string> = new EventEmitter<string>();

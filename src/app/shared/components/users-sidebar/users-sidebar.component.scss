@@ -1,4 +1,3 @@
-@import 'src/assets/styles/variables';
 
 
 :host {
@@ -14,7 +13,7 @@
   margin-left: 16px;
   width: 101px;
   height: 100%;
-  background-color: $sidebar-bg;
+  background-color: var(--pikky-sidebar-bg);
   padding: 32px 20px 0;
 }
 

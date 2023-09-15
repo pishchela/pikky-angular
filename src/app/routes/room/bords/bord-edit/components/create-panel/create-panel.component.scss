@@ -1,4 +1,3 @@
-@import 'src/assets/styles/variables';
 
 :host {
   position: fixed;
@@ -14,18 +13,18 @@
   padding: 16px;
   align-items: flex-start;
   gap: 11px;
-  background: $secondary-white;
+  background: var(--pikky-secondary-white);
 
   button {
     width: 179px;
 
     &.panel-card-create {
-      color: $white;
-      background-color: $dark;
+      color: var(--pikky-color-white);
+      background-color: var(--pikky-color-dark);
     }
     &.panel-card-upload {
-      color: $dark;
-      background-color: $white;
+      color: var(--pikky-color-dark);
+      background-color: var(--pikky-color-white);
     }
   }
 }
