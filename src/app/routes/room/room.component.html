@@ -3,12 +3,18 @@
     <pikky-users-sidebar [users]="users"></pikky-users-sidebar>
   </div>
   <div class="bord-bg">
-    <ng-container [ngSwitch]="currentBordType">
+    <ng-container [ngSwitch]="currentBordType$ | async">
       <pikky-bord-edit
         *ngSwitchCase="bordTypes.EDIT"
         [cards]="cards$ | async"
         [users]="users">
       </pikky-bord-edit>
+      <!----TODO: think maybe create bord dynamically via createFactory ---->
+      <pikky-bord-game
+        *ngSwitchCase="bordTypes.GAME"
+        [cards]="cards$ | async"
+        [users]="users">
+      </pikky-bord-game>
       <!--  <pikky-bord *ngSwitchCase="bordTypes.GAME"></pikky-bord>-->
     </ng-container>
   </div>

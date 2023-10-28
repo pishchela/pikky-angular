@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 
-import {
-  BehaviorSubject,
-  Observable,
-} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { io } from 'socket.io-client';
 
 import { User } from '../models/user.model';
-import {
-  Card,
-  CardViewType,
-  ICard,
-} from '../models/card.model';
+import { Card, CardViewType, ICard } from '../models/card.model';
 import { SocketEvents } from '../enums/socket-events.enum';
+import { BordType } from '../../../core/models/board-type.enum';
 
 // TODO: for each bord may be socket service will be different, but all they will have parent class with connection;
 @Injectable()
 export class SocketService {
   private _users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   private _cards$: BehaviorSubject<Card[]> = new BehaviorSubject<ICard[]>([]);
+  private _boardType: BehaviorSubject<BordType> = new BehaviorSubject<BordType>(BordType.EDIT);
   private _socket = io(
     'ws://localhost:8080',
     {
@@ -46,11 +41,15 @@ export class SocketService {
     });
   }
 
-  public getUsers(): Observable<User[]> {
+  public get currentBordType(): Observable<BordType> {
+    return this._boardType.asObservable();
+  }
+
+  public get users(): Observable<User[]> {
     return this._users$.asObservable();
   }
 
-  public getCards(): Observable<ICard[]> {
+  public get cards(): Observable<ICard[]> {
     return this._cards$.asObservable();
   }
 
@@ -81,9 +80,11 @@ export class SocketService {
 
   private _trackBordTypes(): void {
     this._socket.on(SocketEvents.SET_BORD_TYPE_GAME, () => {
+      this._boardType.next(BordType.GAME);
       console.warn('set bord type to game');
     });
     this._socket.on(SocketEvents.SET_BORD_TYPE_EDIT, () => {
+      this._boardType.next(BordType.EDIT);
       console.warn('set bord type to edit');
     });
   }
