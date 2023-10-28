@@ -12,6 +12,7 @@ import { UsersSidebarComponent } from '../../shared/components/users-sidebar/use
 import { StartPanelComponent } from './bords/bord-edit/components/start-panel/start-panel.component';
 import { RoomEventService } from './services/room-event.service';
 import { AvatarComponent } from '../../shared/components/avatar/avatar.component';
+import { BordGameComponent } from './bords/bord-game/bord-game.component';
 
 const importComponents = [
   CardComponent,
@@ -24,6 +25,7 @@ const moduleComponents = [
   BordEditComponent,
   CreatePanelComponent,
   StartPanelComponent,
+  BordGameComponent,
 ];
 
 @NgModule({

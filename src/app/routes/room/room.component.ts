@@ -11,12 +11,7 @@ import { SocketService } from './services/socket.service';
 import { User } from './models/user.model';
 import { ICard } from './models/card.model';
 import { RoomEventService } from './services/room-event.service';
-
-enum bordType {
-  EDIT,
-  GAME,
-  SCORE,
-}
+import { BordType } from '../../core/models/board-type.enum';
 
 @Component({
   selector: 'pikky-room',
@@ -25,10 +20,10 @@ enum bordType {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomComponent implements OnInit, OnDestroy {
-  public bordTypes = bordType;
-  public currentBordType: bordType = this.bordTypes.EDIT;
-  public users$: Observable<User[]> = this._socketService.getUsers()
-  public cards$: Observable<ICard[]> = this._socketService.getCards();
+  public bordTypes = BordType;
+  public users$: Observable<User[]> = this._socketService.users;
+  public cards$: Observable<ICard[]> = this._socketService.cards;
+  public currentBordType$: Observable<BordType> = this._socketService.currentBordType;
   private _destroy$ = new Subject<any>();
   constructor(
     private _socketService: SocketService,
@@ -72,7 +67,6 @@ export class RoomComponent implements OnInit, OnDestroy {
         // TODO: dont emit where user is already ready;
         this._socketService.setCurrentUserReady();
       });
-
 
   }
 }

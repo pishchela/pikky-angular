@@ -2,12 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Input,
 } from '@angular/core';
 
 import { Card, ICard } from '../../models/card.model';
-import { User } from '../../models/user.model';
 import { RoomEventService } from '../../services/room-event.service';
+import BaseBordComponent from '../bord-base.component';
 
 @Component({
   selector: 'pikky-bord-edit',
@@ -15,13 +14,13 @@ import { RoomEventService } from '../../services/room-event.service';
   styleUrls: ['./bord-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BordEditComponent {
-  @Input() public cards: ICard[] | null = [];
-  @Input() public users: User[] = [];
+export class BordEditComponent extends BaseBordComponent{
 
   public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
 
-  constructor(private _roomEventService: RoomEventService) {}
+  constructor(private _roomEventService: RoomEventService) {
+    super();
+  }
 
   public createCard(): void {
     this._roomEventService.editCardEvent.emit((new Card(this.currentUser)));
@@ -33,13 +32,5 @@ export class BordEditComponent {
 
   public editCard(card: ICard): void {
     this._roomEventService.editCardEvent.emit(card);
-  }
-
-  public cardIdentify(index: number, item: Card): string {
-    return item.id;
-  }
-
-  public get currentUser(): User {
-    return this.users?.find((user) => user.current) as User;
   }
 }
