@@ -11,7 +11,7 @@ import { SocketService } from './services/socket.service';
 import { User } from './models/user.model';
 import { ICard } from './models/card.model';
 import { RoomEventService } from './services/room-event.service';
-import { BordType } from '../../core/models/board-type.enum';
+import { BordType } from '../../core/enums/board-type.enum';
 
 @Component({
   selector: 'pikky-room',

@@ -5,8 +5,9 @@ import { io } from 'socket.io-client';
 
 import { User } from '../models/user.model';
 import { Card, CardViewType, ICard } from '../models/card.model';
-import { SocketEvents } from '../enums/socket-events.enum';
-import { BordType } from '../../../core/models/board-type.enum';
+import { SocketEvents, SocketNotificationEvents } from '../enums/socket-events.enum';
+import { BordType } from '../../../core/enums/board-type.enum';
+import { NotificationService } from '../../../core/services/notification.service';
 
 // TODO: for each bord may be socket service will be different, but all they will have parent class with connection;
 @Injectable()
@@ -26,10 +27,11 @@ export class SocketService {
   );
   private _currentRoomName: string;
 
-  constructor() {
+  constructor(private _notificationService: NotificationService) {
     this._getUsers();
     this._getCards();
     this._trackBordTypes();
+    this._listenNotificationEvents();
   }
 
   public joinRoom(username: string, room: string): void {
@@ -112,5 +114,17 @@ export class SocketService {
       return user;
     });
     return mappedUsers ? mappedUsers : [];
+  }
+
+  private _listenNotificationEvents(): void {
+    this._socket.on(SocketNotificationEvents.USER_CONNECTED, ({ username }) => {
+      this._notificationService.showNotification({ message: `User '${username}' has just connected :)`})
+    });
+    this._socket.on(SocketNotificationEvents.USER_DISCONNECTED, ({ username }) => {
+      this._notificationService.showNotification({ message: `User '${username}' has just disconnected :(`})
+    });
+    this._socket.on(SocketNotificationEvents.USER_SET_READY, ({ username }) => {
+      this._notificationService.showNotification({ message: `User '${username}' has set ready !`})
+    });
   }
 }

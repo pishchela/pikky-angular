@@ -8,3 +8,9 @@ export enum SocketEvents {
   USER_DATA = 'userData',
   CARDS_DATA = 'cardsData',
 }
+
+export enum SocketNotificationEvents {
+  USER_CONNECTED = 'userConnected',
+  USER_DISCONNECTED = 'userDisconnected',
+  USER_SET_READY = 'userSetReady',
+}

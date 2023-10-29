@@ -1,3 +1,17 @@
 @import './assets/styles/button';
 @import './assets/styles/typography';
 @import './assets/styles/variables';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.notification {
+  background-color: var(--pikky-sidebar-bg);
+}
+
+.mat-mdc-snack-bar-container {
+  &.notification {
+    --mdc-snackbar-container-color: var(--pikky-sidebar-bg);
+  }
+}
