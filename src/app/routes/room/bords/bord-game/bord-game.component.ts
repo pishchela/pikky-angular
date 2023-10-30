@@ -3,14 +3,17 @@ import {
   Component,
 } from '@angular/core';
 
-import BaseBordComponent from '../bord-base.component';
+import BaseBord from '../bord-base';
 
 @Component({
   selector: 'pikky-bord-game',
   templateUrl: './bord-game.component.html',
-  styleUrls: ['./bord-game.component.scss'],
+  styleUrls: [
+    './bord-game.component.scss',
+    '../bord-base.scss',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BordGameComponent extends BaseBordComponent{
+export class BordGameComponent extends BaseBord{
 
 }
