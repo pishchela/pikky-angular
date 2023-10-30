@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'pikky-not-found',
   templateUrl: './not-found.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

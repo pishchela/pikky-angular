@@ -1,9 +1,9 @@
-<form>
-  <input>
-  <input>
+<form [formGroup]="formGroup" (ngSubmit)="createRoom()">
+  <input formControlName="roomName" placeholder="Room name">
+  <input formControlName="userName" placeholder="User name">
   <div>
-    <button>Create room</button>
-    <button>Cancel</button>
+    <button type="submit" [disabled]="!roomName.value || !userName.value">Create room</button>
+    <button type="button" [routerLink]="'/'">Cancel</button>
     <!--TODO: here use uuid to generate room --->
   </div>
 </form>
