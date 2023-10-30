@@ -6,15 +6,18 @@ import {
 
 import { Card, ICard } from '../../models/card.model';
 import { RoomEventService } from '../../services/room-event.service';
-import BaseBordComponent from '../bord-base.component';
+import BaseBord from '../bord-base';
 
 @Component({
   selector: 'pikky-bord-edit',
   templateUrl: './bord-edit.component.html',
-  styleUrls: ['./bord-edit.component.scss'],
+  styleUrls: [
+    './bord-edit.component.scss',
+    '../bord-base.scss',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BordEditComponent extends BaseBordComponent{
+export class BordEditComponent extends BaseBord{
 
   public cardCreated: EventEmitter<Card> = new EventEmitter<Card>();
 

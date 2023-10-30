@@ -1,11 +1,12 @@
 .bord-bg {
   background-image: url('../../../assets/images/board-bg.svg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  padding: 32px;
 }

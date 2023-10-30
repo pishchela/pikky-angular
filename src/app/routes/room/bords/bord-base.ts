@@ -5,7 +5,7 @@ import { User } from '../models/user.model';
 
 
 @Directive()
-export default class BaseBordComponent {
+export default class BaseBord {
   @Input() public cards: ICard[] | null = [];
   @Input() public users: User[] = [];
 
